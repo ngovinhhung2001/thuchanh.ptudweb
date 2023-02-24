@@ -3,10 +3,6 @@ const UserService = require("../services/user.service");
 const { client } = require("../utils/mongodb.util");
 const MongoDB = require("../utils/mongodb.util");
 
-exports.showSignInPage = (req, res) => {
-    res.send({ message: "show signIn page" });
-}
-
 exports.signIn = async (req, res, next) => {
     const userService = new UserService(MongoDB.client);
     const user = await userService.findByEmail(req.body?.email);
@@ -17,10 +13,6 @@ exports.signIn = async (req, res, next) => {
     } else {
         return res.send({ message: "Sign in Successfull" });
     }
-}
-
-exports.showSignUpPage = (req, res) => {
-    res.send({ message: "show signUp page" });
 }
 
 exports.signUp = async (req, res, next) => {

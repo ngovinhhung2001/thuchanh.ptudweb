@@ -84,7 +84,7 @@ exports.deleteAll = async (req, res, next) => {
     try {
         const contactService = new ContactService(MongoDB.client);
         const deletedCount = await contactService.deleteAll();
-        return res.send({ message: '${deletedCount} contacts were deleted successfully' });
+        return res.send({ message: `${deletedCount} contacts were deleted successfully` });
     } catch (error) {
         return next(new ApiError(500, "An error occurred while retrieving favorite contacts"))
     }

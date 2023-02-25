@@ -9,9 +9,9 @@ exports.signIn = async (req, res, next) => {
     if (user.length == 0) {
         return next(new ApiError(400, "User not found!"));
     } else if (user[0].password != req.body?.password) {
-        return next(new ApiError(400, "Password not match!"));
+        return next(new ApiError(400, "Password is wrong!"));
     } else {
-        return res.send({ message: "Sign in Successfull" });
+        return res.send(user[0]);
     }
 }
 

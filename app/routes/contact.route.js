@@ -7,6 +7,8 @@ router.route("/").get(contacts.findAll).post(contacts.create).delete(contacts.de
 
 router.route("/favorite").get(contacts.findAllFavorite);
 
+router.route("/user").post(contacts.findByUserId);
+
 router.route("/:id").get(contacts.findOne).put(contacts.update).delete(contacts.delete);
 
 module.exports = router;

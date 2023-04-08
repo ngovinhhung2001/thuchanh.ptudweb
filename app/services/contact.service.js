@@ -11,6 +11,7 @@ class ContactService {
             address: payload.address,
             phone: payload.phone,
             favorite: payload.favorite,
+            user: payload.user
         };
         Object.keys(contact).forEach(
             (key) => contact[key] === undefined && delete contact[key]
@@ -31,6 +32,10 @@ class ContactService {
 
     async findByName(name) {
         return await this.find({ name: { $regex: new RegExp(name), $option: "i" } });
+    }
+
+    async findByUserId(user) {
+        return await this.find({ user: user });
     }
 
     async findById(id) {

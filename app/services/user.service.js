@@ -11,6 +11,7 @@ class UserService {
             email: payload.email,
             address: payload.address,
             phone: payload.phone,
+            user: payload.user
         };
         Object.keys(user).forEach(
             (key) => user[key] === undefined && delete user[key]
